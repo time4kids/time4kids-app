@@ -12,6 +12,8 @@ import webpack from 'webpack';
 import extend from 'extend';
 import AssetsPlugin from 'assets-webpack-plugin';
 
+const INTL_REQUIRE_DESCRIPTIONS = true;
+
 const isDebug = !process.argv.includes('--release');
 const isVerbose = process.argv.includes('--verbose');
 
@@ -72,6 +74,13 @@ const config = {
               // Adds __self attribute to JSX which React will use for some warnings
               // https://github.com/babel/babel/tree/master/packages/babel-plugin-transform-react-jsx-self
               'transform-react-jsx-self',
+            ],
+
+            // https://github.com/yahoo/babel-plugin-react-intl#options
+            ['react-intl',
+              {
+                enforceDescriptions: INTL_REQUIRE_DESCRIPTIONS,
+              },
             ],
           ],
         },
@@ -219,7 +228,7 @@ const config = {
 
 const clientConfig = extend(true, {}, config, {
   entry: {
-    client: './client.js',
+    client: './clientLoader.js',
   },
 
   output: {

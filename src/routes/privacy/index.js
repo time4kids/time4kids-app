@@ -15,10 +15,14 @@ export default {
 
   path: '/privacy',
 
-  async action() {
+  async action({ locale }) {
     const data = await new Promise((resolve) => {
       require.ensure([], require => {
-        resolve(require('./privacy.md'));
+        try {
+          resolve(require(`./privacy.${locale}.md`)); // eslint-disable-line import/no-dynamic-require
+        } catch (e) {
+          resolve(require('./privacy.md'));
+        }
       }, 'privacy');
     });
 
