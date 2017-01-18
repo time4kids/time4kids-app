@@ -1,0 +1,9 @@
+@import '../../../node_modules/normalize.css/normalize.css';
+
+/*
+  This will load all the css styles defined in *css* directory
+*/
+@import './css/main.css'
+@import './css/responsive.css'
+@import './css/shortcode.css'
+@import './css/font-awesome.css'
