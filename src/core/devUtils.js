@@ -8,6 +8,7 @@
  */
 
 /* eslint-disable global-require */
+import path from 'path';
 
 if (module.hot || process.env.NODE_ENV !== 'production') {
   module.exports = {
@@ -18,5 +19,7 @@ if (module.hot || process.env.NODE_ENV !== 'production') {
     // Force-updates React component tree recursively
     // https://github.com/gaearon/react-deep-force-update
     deepForceUpdate: require('react-deep-force-update'),
+
+    assetsUrl: path.resolve(__dirname, '../../assets'),
   };
 }

@@ -35,7 +35,7 @@ class Html extends React.Component {
           <link rel="apple-touch-icon" href="apple-touch-icon.png" />
           {style && <style id="css" dangerouslySetInnerHTML={{ __html: style }} />}
         </head>
-        <body>
+        <body className="main">
           <div id="app" dangerouslySetInnerHTML={{ __html: children }} />
           {state && (
             <script

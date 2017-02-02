@@ -18,6 +18,7 @@
     "express-graphql": "^0.6.1",
     "express-jwt": "^5.1.0",
     "express-request-language": "^1.1.9",
+    "extract-text-webpack-plugin": "^1.0.1",
     "fastclick": "^1.0.6",
     "fbjs": "^0.8.6",
     "graphql": "^0.8.2",

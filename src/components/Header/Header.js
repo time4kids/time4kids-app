@@ -9,13 +9,10 @@
 
 import React from 'react';
 import { defineMessages, FormattedMessage } from 'react-intl';
-import withStyles from 'isomorphic-style-loader/lib/withStyles';
-import s from './Header.css';
 import Link from '../Link';
 import Navigation from '../Navigation';
 import LanguageSwitcher from '../LanguageSwitcher';
-import logoUrl from './logo-small.png';
-import logoUrl2x from './logo-small@2x.png';
+import { assetsUrl } from '../../core/devUtils';
 
 const messages = defineMessages({
   brand: {
@@ -38,6 +35,18 @@ const messages = defineMessages({
 class Header extends React.Component {
   render() {
     return (
+      <header>
+        <div className="container">
+          <Link className="logo" to="/" title="Time4kids">
+            <img src={assetsUrl + '/images/logo.png'} alt="Kids Life" title="Kids Life" />
+          </Link>
+        </div>
+        <div className="contact-details">
+          <LanguageSwitcher />
+        </div>
+      </header>
+
+/*
       <div className={s.root}>
         <div className={s.container}>
           <Navigation className={s.nav} />
@@ -55,9 +64,9 @@ class Header extends React.Component {
             <FormattedMessage tagName="p" {...messages.bannerDesc} />
           </div>
         </div>
-      </div>
+      </div>*/
     );
   }
 }
 
-export default withStyles(s)(Header);
+export default Header;
