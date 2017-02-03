@@ -152,7 +152,8 @@
     "parser": "babel-eslint",
     "extends": [
       "airbnb",
-      "plugin:css-modules/recommended"
+      "plugin:css-modules/recommended",
+      "esprima"
     ],
     "plugins": [
       "css-modules"
@@ -164,9 +165,10 @@
       "browser": true
     },
     "rules": {
+      "semi": "off",
       "arrow-parens": "off",
       "generator-star-spacing": "off",
-      "import/extensions": "off",
+      "import/extensions": "on",
       "import/no-extraneous-dependencies": "off",
       "react/forbid-prop-types": "off",
       "react/jsx-filename-extension": "off",

@@ -8,28 +8,26 @@
  */
 
 import React from 'react';
-import withStyles from 'isomorphic-style-loader/lib/withStyles';
-import s from './Footer.css';
-import Link from '../Link';
+import AboutMenu from './AboutMenu'
 
 class Footer extends React.Component {
   render() {
     return (
-      <div className={s.root}>
-        <div className={s.container}>
-          <span className={s.text}>© Your Company</span>
-          <span className={s.spacer}>·</span>
-          <Link className={s.link} to="/">Home</Link>
-          <span className={s.spacer}>·</span>
-          <Link className={s.link} to="/admin">Admin</Link>
-          <span className={s.spacer}>·</span>
-          <Link className={s.link} to="/privacy">Privacy</Link>
-          <span className={s.spacer}>·</span>
-          <Link className={s.link} to="/not-found">Not Found</Link>
+      <footer>
+        <div className="footer-widgets-wrapper">
+          <div className="container">
+            <div className="column dt-sc-one-fourth first">
+              <aside className="widget widget_text">
+                <h3 className="widgettitle red_sketch"> About Kids Life </h3>
+                <p>Happy <a href=""><strong>Kids Life</strong></a> comes with powerful theme options, which empowers you to quickly and easily build incredible store.</p>
+                <AboutMenu />
+              </aside>
+            </div>
+          </div>
         </div>
-      </div>
+      </footer>
     );
   }
 }
 
-export default withStyles(s)(Footer);
+export default Footer;

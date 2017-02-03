@@ -11,12 +11,14 @@ import path from 'path';
 import webpack from 'webpack';
 import extend from 'extend';
 import AssetsPlugin from 'assets-webpack-plugin';
-import ExtractTextPlugin from 'extract-text-webpack-plugin'
+import ExtractTextPlugin from 'extract-text-webpack-plugin';
 
 const INTL_REQUIRE_DESCRIPTIONS = true;
 
 const isDebug = !process.argv.includes('--release');
 const isVerbose = process.argv.includes('--verbose');
+
+var rootPath = path.join(__dirname, '../');
 
 //
 // Common configuration chunk to be used for both
@@ -24,10 +26,10 @@ const isVerbose = process.argv.includes('--verbose');
 // -----------------------------------------------------------------------------
 
 const config = {
-  context: path.resolve(__dirname, '../src'),
+  context: path.join(rootPath, 'src'),
 
   output: {
-    path: path.resolve(__dirname, '../build/public/assets'),
+    path: path.join(rootPath, 'build', 'public', 'assets'),
     publicPath: '/assets/',
     sourcePrefix: '  ',
     pathinfo: isVerbose,
@@ -87,22 +89,8 @@ const config = {
         },
       },
       {
-        test: /\.css/,
-        loaders: [
-          'isomorphic-style-loader',
-          `css-loader?${JSON.stringify({
-            // CSS Loader https://github.com/webpack/css-loader
-            importLoaders: 1,
-            sourceMap: isDebug,
-            // CSS Modules https://github.com/css-modules/css-modules
-            modules: true,
-            localIdentName: isDebug ? '[name]-[local]-[hash:base64:5]' : '[hash:base64:5]',
-            // CSS Nano http://cssnano.co/options/
-            minimize: !isDebug,
-            discardComments: { removeAll: true },
-          })}`,
-          'postcss-loader?pack=default',
-        ],
+        test: /\.css$/,
+        loader: ExtractTextPlugin.extract("style-loader", "css-loader")
       },
       {
         test: /\.md$/,
@@ -120,7 +108,7 @@ const config = {
         test: /\.(ico|jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2)(\?.*)?$/,
         loader: 'file-loader',
         query: {
-          name: isDebug ? '[path][name].[ext]?[hash:8]' : '[hash:8].[ext]',
+          name: 'file-loader?name=' + isDebug ? '[path][name].[ext]?[hash:8]' : '[hash:8].[ext]',
         },
       },
       {
@@ -135,7 +123,7 @@ const config = {
   },
 
   resolve: {
-    root: path.resolve(__dirname, '../src'),
+    root: rootPath,
     modulesDirectories: ['node_modules'],
     extensions: ['', '.webpack.js', '.web.js', '.js', '.jsx', '.json'],
   },
@@ -240,7 +228,7 @@ const clientConfig = extend(true, {}, config, {
   target: 'web',
 
   plugins: [
-
+    new ExtractTextPlugin("[name].css"),
     // Define free variables
     // https://webpack.github.io/docs/list-of-plugins.html#defineplugin
     new webpack.DefinePlugin({
@@ -336,6 +324,7 @@ const serverConfig = extend(true, {}, config, {
   ],
 
   plugins: [
+    new ExtractTextPlugin("[name].css"),
     // Define free variables
     // https://webpack.github.io/docs/list-of-plugins.html#defineplugin
     new webpack.DefinePlugin({

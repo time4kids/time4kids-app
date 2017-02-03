@@ -8,8 +8,6 @@
  */
 
 import React, { PropTypes } from 'react';
-import withStyles from 'isomorphic-style-loader/lib/withStyles';
-import s from './ErrorPage.css';
 
 class ErrorPage extends React.Component {
   static propTypes = {
@@ -19,23 +17,12 @@ class ErrorPage extends React.Component {
   render() {
     if (process.env.NODE_ENV !== 'production') {
       const { error } = this.props;
-      return (
-        <div>
-          <h1>{error.name}</h1>
-          <p>{error.message}</p>
-          <pre>{error.stack}</pre>
-        </div>
-      );
+      return (<h1>Error Page</h1>);
     }
 
-    return (
-      <div>
-        <h1>Error</h1>
-        <p>Sorry, a critical error occurred on this page.</p>
-      </div>
-    );
+    return (<h1>Error Page</h1>);
   }
 }
 
 export { ErrorPage as ErrorPageWithoutStyle };
-export default withStyles(s)(ErrorPage);
+export default ErrorPage;

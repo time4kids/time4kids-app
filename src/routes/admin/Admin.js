@@ -8,8 +8,6 @@
  */
 
 import React, { PropTypes } from 'react';
-import withStyles from 'isomorphic-style-loader/lib/withStyles';
-import s from './Admin.css';
 
 class Admin extends React.Component {
   static propTypes = {
@@ -17,15 +15,8 @@ class Admin extends React.Component {
   };
 
   render() {
-    return (
-      <div className={s.root}>
-        <div className={s.container}>
-          <h1>{this.props.title}</h1>
-          <p>...</p>
-        </div>
-      </div>
-    );
+    return (<h1>Admin Page</h1>);
   }
 }
 
-export default withStyles(s)(Admin);
+export default Admin;

@@ -70,5 +70,41 @@
     "files": [
       "src/components/Header/Header.js"
     ]
+  },
+  {
+    "id": "footer.about-menu.english-classes",
+    "description": "asdas",
+    "defaultMessage": "English Grammar Class",
+    "message": "",
+    "files": [
+      "src/components/Footer/AboutMenu.js"
+    ]
+  },
+  {
+    "id": "footer.about-menu.karate-classes",
+    "description": "asdasd",
+    "defaultMessage": "Karate classes",
+    "message": "",
+    "files": [
+      "src/components/Footer/AboutMenu.js"
+    ]
+  },
+  {
+    "id": "footer.about-menu.music-classes",
+    "description": "asdasd",
+    "defaultMessage": "Music classes",
+    "message": "",
+    "files": [
+      "src/components/Footer/AboutMenu.js"
+    ]
+  },
+  {
+    "id": "footer.about-menu.swimming-classes",
+    "description": "dasda",
+    "defaultMessage": "Swimming classes",
+    "message": "",
+    "files": [
+      "src/components/Footer/AboutMenu.js"
+    ]
   }
 ]

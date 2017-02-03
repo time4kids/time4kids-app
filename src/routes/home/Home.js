@@ -9,8 +9,6 @@
 
 import React, { PropTypes } from 'react';
 import { FormattedRelative } from 'react-intl';
-import withStyles from 'isomorphic-style-loader/lib/withStyles';
-import s from './Home.css';
 
 class Home extends React.Component {
   static propTypes = {
@@ -23,28 +21,13 @@ class Home extends React.Component {
 
   render() {
     return (
-      <div className={s.root}>
-        <div className={s.container}>
+      <div className="root">
+        <div className="container">
           <h1>React.js News</h1>
-          <ul className={s.news}>
-            {this.props.news.map((item, index) => (
-              <li key={index} className={s.newsItem}>
-                <a href={item.link} className={s.newsTitle}>{item.title}</a>
-                {' '}
-                <span className={s.publishedDate}>
-                  <FormattedRelative value={item.publishedDate} />
-                </span>
-                <span
-                  className={s.newsDesc}
-                  dangerouslySetInnerHTML={{ __html: item.contentSnippet }}
-                />
-              </li>
-            ))}
-          </ul>
         </div>
       </div>
     );
   }
 }
 
-export default withStyles(s)(Home);
+export default Home;

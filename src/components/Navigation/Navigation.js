@@ -10,8 +10,6 @@
 import React, { PropTypes } from 'react';
 import { defineMessages, FormattedMessage } from 'react-intl';
 import cx from 'classnames';
-import withStyles from 'isomorphic-style-loader/lib/withStyles';
-import s from './Navigation.css';
 import Link from '../Link';
 
 const messages = defineMessages({
@@ -73,4 +71,4 @@ class Navigation extends React.Component {
   }
 }
 
-export default withStyles(s)(Navigation);
+export default Navigation;
