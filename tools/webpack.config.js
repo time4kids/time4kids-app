@@ -215,6 +215,11 @@ const config = {
       ],
     };
   },
+  plugins:[
+    new ExtractTextPlugin("styles/app.css", {
+      publicPath: '/assets/'
+    }),
+  ]
 };
 
 //
@@ -234,10 +239,7 @@ const clientConfig = extend(true, {}, config, {
   target: 'web',
 
   plugins: [
-    new ExtractTextPlugin("styles/app.css", {
-      publicPath: '/assets/',
-      allChunks: true
-    }),
+    ...config.plugins,
     // Define free variables
     // https://webpack.github.io/docs/list-of-plugins.html#defineplugin
     new webpack.DefinePlugin({
@@ -332,10 +334,7 @@ const serverConfig = extend(true, {}, config, {
   ],
 
   plugins: [
-    new ExtractTextPlugin("styles/app.css", {
-      publicPath: '/assets/',
-      allChunks: true
-    }),
+    ...config.plugins,
     // Define free variables
     // https://webpack.github.io/docs/list-of-plugins.html#defineplugin
     new webpack.DefinePlugin({

@@ -73,7 +73,7 @@
   },
   {
     "id": "footer.about-menu.english-classes",
-    "description": "asdas",
+    "description": "default",
     "defaultMessage": "English Grammar Class",
     "message": "",
     "files": [
@@ -82,7 +82,7 @@
   },
   {
     "id": "footer.about-menu.karate-classes",
-    "description": "asdasd",
+    "description": "default",
     "defaultMessage": "Karate classes",
     "message": "",
     "files": [
@@ -91,7 +91,7 @@
   },
   {
     "id": "footer.about-menu.music-classes",
-    "description": "asdasd",
+    "description": "default",
     "defaultMessage": "Music classes",
     "message": "",
     "files": [
@@ -100,7 +100,7 @@
   },
   {
     "id": "footer.about-menu.swimming-classes",
-    "description": "dasda",
+    "description": "default",
     "defaultMessage": "Swimming classes",
     "message": "",
     "files": [
@@ -111,6 +111,7 @@
     "id": "footer.about-menu.description",
     "defaultMessage": "Menu description",
     "message": "",
+    "description": "default",
     "files": [
       "src/components/Footer/AboutMenu.js"
     ]
@@ -119,12 +120,14 @@
     "id": "footer.about-menu.title",
     "defaultMessage": "About Kids Life",
     "message": "",
+    "description": "default",
     "files": [
       "src/components/Footer/AboutMenu.js"
     ]
   },
   {
     "id": "footer.copyright.copyright",
+    "description": "default",
     "defaultMessage": "© 2016 Time4kids. All rights reserved. Design by",
     "message": "",
     "files": [
@@ -133,6 +136,7 @@
   },
   {
     "id": "footer.copyright.follow_us",
+    "description": "default",
     "defaultMessage": "Follow us",
     "message": "",
     "files": [
