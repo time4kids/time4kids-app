@@ -1,27 +1,37 @@
 import React, { Component } from 'react';
-import { injectIntl, intlShape, defineMessages } from 'react-intl';
+import { injectIntl, intlShape, defineMessages, FormattedMessage } from 'react-intl';
 import Link from '../Link';
 
 const messages = defineMessages({
+  'title': {
+    id: 'footer.about-menu.title',
+    defaultMessage: 'About Kids Life',
+    description: false,
+  },
+  'description': {
+    id: 'footer.about-menu.description',
+    defaultMessage: 'Menu description',
+    description: false,
+  },
   first_link: {
     id: 'footer.about-menu.english-classes',
     defaultMessage: 'English Grammar Class',
-    description: 'asdas',
+    description: false,
   },
   second_link: {
     id: 'footer.about-menu.music-classes',
     defaultMessage: 'Music classes',
-    description: 'asdasd',
+    description: false,
   },
   third_link: {
     id: 'footer.about-menu.swimming-classes',
     defaultMessage: 'Swimming classes',
-    description: 'dasda',
+    description: false,
   },
   forth_link: {
     id: 'footer.about-menu.karate-classes',
     defaultMessage: 'Karate classes',
-    description: 'asdasd',
+    description: false,
   },
 });
 
@@ -33,7 +43,7 @@ const urlList = [
 ]
 
 class AboutMenu extends Component {
-  createMenuList(){
+  createMenuList() {
     const {formatMessage} = this.props.intl;
 
     return urlList.map((link, index) => {
@@ -46,12 +56,18 @@ class AboutMenu extends Component {
   }
 
   render() {
-    return( <ul>{this.createMenuList()}</ul> );
-  }
-}
+    return(
+      <aside className='widget widget_text'>
+        <h3 className='widgettitle red_sketch'> <FormattedMessage {...messages.title} /> </h3>
+        <p><FormattedMessage {...messages.description} /></p>
+        <ul>{this.createMenuList()}</ul>
+      </aside>
+    );
+  };
+};
 
 AboutMenu.propTypes = {
   intl: intlShape.isRequired
-}
+};
 
 export default injectIntl(AboutMenu);

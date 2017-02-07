@@ -15,7 +15,7 @@ class Html extends React.Component {
   static propTypes = {
     title: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
-    style: PropTypes.string,
+    styles: PropTypes.arrayOf(PropTypes.string.isRequired),
     scripts: PropTypes.arrayOf(PropTypes.string.isRequired),
     state: PropTypes.object,
     lang: PropTypes.string,
@@ -23,7 +23,7 @@ class Html extends React.Component {
   };
 
   render() {
-    const { title, description, style, scripts, state, lang, children } = this.props;
+    const { title, description, styles, scripts, state, lang, children } = this.props;
     return (
       <html className="no-js" lang={lang}>
         <head>
@@ -32,8 +32,8 @@ class Html extends React.Component {
           <title>{title}</title>
           <meta name="description" content={description} />
           <meta name="viewport" content="width=device-width, initial-scale=1" />
+          {styles && styles.map(style => <link rel="stylesheet" type="text/css" key={style} href={style} />)}
           <link rel="apple-touch-icon" href="apple-touch-icon.png" />
-          {style && <style id="css" dangerouslySetInnerHTML={{ __html: style }} />}
         </head>
         <body className="main">
           <div id="app" dangerouslySetInnerHTML={{ __html: children }} />

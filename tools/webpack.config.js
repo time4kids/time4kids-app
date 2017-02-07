@@ -24,7 +24,6 @@ var rootPath = path.join(__dirname, '../');
 // Common configuration chunk to be used for both
 // client-side (client.js) and server-side (server.js) bundles
 // -----------------------------------------------------------------------------
-
 const config = {
   context: path.join(rootPath, 'src'),
 
@@ -90,7 +89,7 @@ const config = {
       },
       {
         test: /\.css$/,
-        loader: ExtractTextPlugin.extract("style-loader", "css-loader")
+        loader: ExtractTextPlugin.extract("style", "css?minimize=" + !isDebug),
       },
       {
         test: /\.md$/,
@@ -105,11 +104,18 @@ const config = {
         loader: 'raw-loader',
       },
       {
-        test: /\.(ico|jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2)(\?.*)?$/,
+        test: /\.(eot|svg|ttf|woff|woff2)(\?.*)?$/,
         loader: 'file-loader',
         query: {
-          name: 'file-loader?name=' + isDebug ? '[path][name].[ext]?[hash:8]' : '[hash:8].[ext]',
-        },
+          name: 'file-loader?name=' + isDebug ? 'fonts/[name].[ext]?[hash:8]' : '[hash:8].[ext]',
+        }
+      },
+      {
+        test: /\.(ico|jpg|jpeg|png|gif|otf|webp)(\?.*)?$/,
+        loader: 'file-loader',
+        query: {
+          name: 'file-loader?name=' + isDebug ? 'images/[name].[ext]?[hash:8]' : '[hash:8].[ext]',
+        }
       },
       {
         test: /\.(mp4|webm|wav|mp3|m4a|aac|oga)(\?.*)?$/,
@@ -228,7 +234,10 @@ const clientConfig = extend(true, {}, config, {
   target: 'web',
 
   plugins: [
-    new ExtractTextPlugin("[name].css"),
+    new ExtractTextPlugin("styles/app.css", {
+      publicPath: '/assets/',
+      allChunks: true
+    }),
     // Define free variables
     // https://webpack.github.io/docs/list-of-plugins.html#defineplugin
     new webpack.DefinePlugin({
@@ -317,14 +326,16 @@ const serverConfig = extend(true, {}, config, {
     /^\.\/assets$/,
     (context, request, callback) => {
       const isExternal =
-        request.match(/^[@a-z][a-z/.\-0-9]*$/i) &&
-        !request.match(/\.(css|less|scss|sss)$/i);
+        request.match(/^[@a-z][a-z/.\-0-9]*$/i)
       callback(null, Boolean(isExternal));
     },
   ],
 
   plugins: [
-    new ExtractTextPlugin("[name].css"),
+    new ExtractTextPlugin("styles/app.css", {
+      publicPath: '/assets/',
+      allChunks: true
+    }),
     // Define free variables
     // https://webpack.github.io/docs/list-of-plugins.html#defineplugin
     new webpack.DefinePlugin({

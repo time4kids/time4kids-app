@@ -127,8 +127,6 @@ app.get('*', async (req, res, next) => {
       locale,
     }));
 
-    const css = new Set();
-
     // Global (context) variables that can be easily accessed from any React component
     // https://facebook.github.io/react/docs/context.html
     const context = {
@@ -151,7 +149,7 @@ app.get('*', async (req, res, next) => {
 
     const data = { ...route };
     data.children = ReactDOM.renderToString(<App context={context}>{route.component}</App>);
-    data.style = [...css].join('');
+    data.styles = [assets.client.css];
     data.scripts = [
       assets.vendor.js,
       assets.client.js,

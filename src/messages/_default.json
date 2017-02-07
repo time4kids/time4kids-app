@@ -106,5 +106,37 @@
     "files": [
       "src/components/Footer/AboutMenu.js"
     ]
+  },
+  {
+    "id": "footer.about-menu.description",
+    "defaultMessage": "Menu description",
+    "message": "",
+    "files": [
+      "src/components/Footer/AboutMenu.js"
+    ]
+  },
+  {
+    "id": "footer.about-menu.title",
+    "defaultMessage": "About Kids Life",
+    "message": "",
+    "files": [
+      "src/components/Footer/AboutMenu.js"
+    ]
+  },
+  {
+    "id": "footer.copyright.copyright",
+    "defaultMessage": "© 2016 Time4kids. All rights reserved. Design by",
+    "message": "",
+    "files": [
+      "src/components/Footer/Copyright.js"
+    ]
+  },
+  {
+    "id": "footer.copyright.follow_us",
+    "defaultMessage": "Follow us",
+    "message": "",
+    "files": [
+      "src/components/Footer/Copyright.js"
+    ]
   }
 ]

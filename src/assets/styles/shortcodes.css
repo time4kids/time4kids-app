@@ -328,7 +328,7 @@ ul.dt-sc-tabs-vertical-frame li a{display:block; background:#df9b00; border-radi
 
 .dt-sc-sponsor-carousel-wrapper .carousel-arrows{position:absolute; top:-55px; right:0px;}
 
-.dt-sc-sponsor-carousel-wrapper .carousel-arrows a{background:url(../../images/sponsor-carousel-arrows.png) no-repeat; width:14px; height:28px; float:left; text-align:center; margin-left:15px; opacity:0.5; filter:alpha(opacity=50);}
+.dt-sc-sponsor-carousel-wrapper .carousel-arrows a{background:url(../images/sponsor-carousel-arrows.png) no-repeat; width:14px; height:28px; float:left; text-align:center; margin-left:15px; opacity:0.5; filter:alpha(opacity=50);}
 
 .dt-sc-sponsor-carousel-wrapper .carousel-arrows a:hover{opacity:1; filter:alpha(opacity=100);}
 

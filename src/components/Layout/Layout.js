@@ -8,7 +8,7 @@
  */
 
 import React, { PropTypes } from 'react';
-import m from '../../../assets/css/app.css'
+import m from '../../assets/styles/app.css'
 import Header from '../Header';
 import Footer from '../Footer';
 

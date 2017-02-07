@@ -8,7 +8,8 @@
  */
 
 import React from 'react';
-import AboutMenu from './AboutMenu'
+import AboutMenu from './AboutMenu';
+import Copyright from './Copyright';
 
 class Footer extends React.Component {
   render() {
@@ -17,17 +18,14 @@ class Footer extends React.Component {
         <div className="footer-widgets-wrapper">
           <div className="container">
             <div className="column dt-sc-one-fourth first">
-              <aside className="widget widget_text">
-                <h3 className="widgettitle red_sketch"> About Kids Life </h3>
-                <p>Happy <a href=""><strong>Kids Life</strong></a> comes with powerful theme options, which empowers you to quickly and easily build incredible store.</p>
-                <AboutMenu />
-              </aside>
+              <AboutMenu />
             </div>
           </div>
         </div>
+        <Copyright />
       </footer>
     );
-  }
-}
+  };
+};
 
 export default Footer;

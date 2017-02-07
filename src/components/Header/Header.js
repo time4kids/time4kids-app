@@ -12,7 +12,7 @@ import { defineMessages, FormattedMessage } from 'react-intl';
 import Link from '../Link';
 import Navigation from '../Navigation';
 import LanguageSwitcher from '../LanguageSwitcher';
-import logoUrl from '../../../assets/images/logo.png';
+import logoUrl from '../../assets/images/logo.png';
 
 const messages = defineMessages({
   brand: {
