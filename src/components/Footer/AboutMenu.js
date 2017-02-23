@@ -6,32 +6,32 @@ const messages = defineMessages({
   'title': {
     id: 'footer.about-menu.title',
     defaultMessage: 'About Kids Life',
-    description: false,
+    description: 'default',
   },
   'description': {
     id: 'footer.about-menu.description',
     defaultMessage: 'Menu description',
-    description: false,
+    description: 'default',
   },
   first_link: {
     id: 'footer.about-menu.english-classes',
     defaultMessage: 'English Grammar Class',
-    description: false,
+    description: 'default',
   },
   second_link: {
     id: 'footer.about-menu.music-classes',
     defaultMessage: 'Music classes',
-    description: false,
+    description: 'default',
   },
   third_link: {
     id: 'footer.about-menu.swimming-classes',
     defaultMessage: 'Swimming classes',
-    description: false,
+    description: 'default',
   },
   forth_link: {
     id: 'footer.about-menu.karate-classes',
     defaultMessage: 'Karate classes',
-    description: false,
+    description: 'default',
   },
 });
 

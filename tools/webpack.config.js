@@ -89,7 +89,7 @@ const config = {
       },
       {
         test: /\.css$/,
-        loader: ExtractTextPlugin.extract("style", "css?minimize=" + !isDebug),
+        loader: ExtractTextPlugin.extract("style", `css?minimize= ${!isDebug}&sourceMap `),
       },
       {
         test: /\.md$/,
@@ -332,7 +332,7 @@ const serverConfig = extend(true, {}, config, {
   ],
 
   plugins: [
-    new ExtractTextPlugin("styles/app.css", {
+    new ExtractTextPlugin("styles/[name].[contenthash].css", {
       publicPath: '/assets/',
       allChunks: true
     }),
