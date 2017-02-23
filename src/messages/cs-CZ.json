@@ -127,6 +127,7 @@
   },
   {
     "id": "footer.copyright.copyright",
+    "description": "default",
     "defaultMessage": "© 2016 Time4kids. All rights reserved. Design by",
     "message": "",
     "description": "default",
@@ -136,6 +137,7 @@
   },
   {
     "id": "footer.copyright.follow_us",
+    "description": "default",
     "defaultMessage": "Follow us",
     "message": "",
     "description": "default",
